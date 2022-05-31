@@ -7,15 +7,23 @@ const expense = new Schema({
     fixed: { type: Boolean, required: true },
     amount: { type: Number, required: true},
     spent: { type: Number, required: true},
-    fund: {
+    fundRef: {
         type: mongoose.Schema.Types.ObjectId,
-        ref: "Income"
-    }
+        ref: "Fund"
+    },
+    transactions: [{
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "Transaction"
+    }]
 });
 
 const income = new Schema({
     name: { type: String, required: true},
     amount: { type: Number, required: true},
+    transactions: [{
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "Transaction"
+    }]
 });
 
 const Expense = mongoose.model('Expense', expense);

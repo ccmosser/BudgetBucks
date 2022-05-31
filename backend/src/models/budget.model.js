@@ -22,6 +22,10 @@ const schema = new Schema({
                 ref: "Expense"
             }]
         }]
+    },
+    userRef: {
+        type: mongoose.Schema.Types.ObjectId,
+        refPath: "User"
     }
 });
 
